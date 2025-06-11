@@ -1,0 +1,65 @@
+<template>
+  <div class="login-container">
+    <n-card title="Iniciar sesión" class="login-card">
+      <n-input
+        v-model:value="email"
+        placeholder="Correo electrónico"
+        type="text"
+        clearable
+      />
+      <n-input
+        v-model:value="password"
+        placeholder="Contraseña"
+        type="password"
+        show-password-on="mousedown"
+        class="login-input"
+      />
+      <n-space justify="space-between" class="login-buttons">
+        <n-button type="primary" @click="login">Iniciar sesión</n-button>
+        <n-button @click="register">Registrarse</n-button>
+      </n-space>
+      <n-divider />
+      <p v-if="user">Sesión iniciada como: {{ user.email }}</p>
+    </n-card>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import { auth } from '../config/firebase'
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged
+} from 'firebase/auth'
+
+const email = ref('')
+const password = ref('')
+const user = ref(null)
+
+const login = async () => {
+  try {
+    const res = await signInWithEmailAndPassword(auth, email.value, password.value)
+    user.value = res.user
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+const register = async () => {
+  try {
+    const res = await createUserWithEmailAndPassword(auth, email.value, password.value)
+    user.value = res.user
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+onMounted(() => {
+  onAuthStateChanged(auth, (u) => {
+    user.value = u
+  })
+})
+</script>
+
+<style src="../assets/styles/login.css"></style>
