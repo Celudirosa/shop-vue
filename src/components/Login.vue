@@ -9,7 +9,7 @@
       />
       <n-input
         v-model:value="password"
-        placeholder="Contraseña"
+        placeholder="t('Contraseña')"
         type="password"
         show-password-on="mousedown"
         class="login-input"
@@ -27,6 +27,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { auth } from '../config/firebase'
+import { useI18n } from 'vue-i18n'
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -36,6 +37,7 @@ import {
 const email = ref('')
 const password = ref('')
 const user = ref(null)
+const { t } = useI18n()
 
 const login = async () => {
   try {
