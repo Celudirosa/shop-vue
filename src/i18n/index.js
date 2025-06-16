@@ -2,16 +2,24 @@ import { createI18n } from 'vue-i18n'
 
 const messages = {
   en: {
-    login: 'Login',
-    register: 'Register',
-    email: 'Email',
-    password: 'Password',
+    login: {
+      title: 'Login',
+      email: 'Email',
+      password: 'Password',
+      btnLogin: 'Sign In',
+      btnRegister: 'Register',
+      logged: 'Logged in as: {email}'
+    }
   },
   es: {
-    login: 'Iniciar sesión',
-    register: 'Registrarse',
-    email: 'Correo electrónico',
-    password: 'Contraseña',
+    login: {
+      title: 'Iniciar sesión',
+      email: 'Correo electrónico',
+      password: 'Contraseña',
+      btnLogin: 'Iniciar sesión',
+      btnRegister: 'Registrarse',
+      logged: 'Sesión iniciada como: {email}'
+    }
   }
 }
 

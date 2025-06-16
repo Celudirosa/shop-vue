@@ -1,25 +1,31 @@
 <template>
   <div class="login-container">
-    <n-card title="Iniciar sesión" class="login-card">
+    <n-card :title="t('login.title')" class="login-card">
       <n-input
         v-model:value="email"
-        placeholder="Correo electrónico"
+        :placeholder="t('login.email')"
         type="text"
         clearable
       />
       <n-input
         v-model:value="password"
-        placeholder="t('Contraseña')"
+        :placeholder="t('login.password')"
         type="password"
         show-password-on="mousedown"
         class="login-input"
       />
       <n-space justify="space-between" class="login-buttons">
-        <n-button type="primary" @click="login">Iniciar sesión</n-button>
-        <n-button @click="register">Registrarse</n-button>
+        <n-button type="primary" @click="login">
+          {{ t('login.btnLogin') }}
+        </n-button>
+        <n-button @click="register">
+          {{ t('login.btnRegister') }}
+        </n-button>
       </n-space>
       <n-divider />
-      <p v-if="user">Sesión iniciada como: {{ user.email }}</p>
+      <p v-if="user">
+        {{ t('login.logged', { email: user.email }) }}
+      </p>
     </n-card>
   </div>
 </template>
