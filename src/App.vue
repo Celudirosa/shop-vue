@@ -1,6 +1,7 @@
 <script setup>
 import Login from './components/Login.vue'
 import LanguageSwitcher from './components/LanguageSwitcher.vue'
+import Menu from './components/Menu.vue'
 import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()
@@ -15,7 +16,7 @@ const menuOptions = [
 <template>
 <n-layout>
     <n-layout-header bordered>
-      <n-menu mode="horizontal" :options="menuOptions" router />
+      <Menu />
     </n-layout-header>
 
     <n-layout-content style="min-height:100vh;padding:24px">
