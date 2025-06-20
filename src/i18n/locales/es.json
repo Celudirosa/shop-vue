@@ -1,0 +1,10 @@
+{
+  "login": {
+    "title": "Iniciar sesión",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "btnLogin": "Iniciar sesión",
+    "btnRegister": "Registrarse",
+    "logged": "Sesión iniciada como: {email}"
+  }
+}

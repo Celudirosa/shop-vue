@@ -10,10 +10,12 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@vicons/ionicons5": "^0.13.0",
     "firebase": "^11.9.1",
     "naive-ui": "^2.41.1",
     "vue": "^3.5.13",
-    "vue-i18n": "^11.1.5"
+    "vue-i18n": "^11.1.5",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
