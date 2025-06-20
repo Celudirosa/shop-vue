@@ -5,6 +5,14 @@
     "password": "Password",
     "btnLogin": "Sign In",
     "btnRegister": "Register",
-    "logged": "Logged in as: {email}"
+    "logged": "Logged in as: {email}",
+    "registerTitle": "Create account",
+    "backToLogin": "Log back in",
+    "emailRequired": "Enter your email",
+    "emailInvalid": "Invalid email format",
+    "pwdRequired": "Enter your password",
+    "pdwMin": "Minimun 6 characters",
+    "regSuccess": "Registration completed",
+    "regError": "Registration failed"
   }
 }

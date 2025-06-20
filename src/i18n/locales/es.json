@@ -5,6 +5,14 @@
     "password": "Contraseña",
     "btnLogin": "Iniciar sesión",
     "btnRegister": "Registrarse",
-    "logged": "Sesión iniciada como: {email}"
+    "logged": "Sesión iniciada como: {email}",
+    "registerTitle": "Crear cuenta",
+    "backToLogin": "Volver a iniciar sesión",
+    "emailRequired": "Introduce tu correo",
+    "emailInvalid": "Formato de correo incorrecto",
+    "pwdRequired": "Introduce tu contraseña",
+    "pdwMin": "Mínimo 6 caracteres",
+    "regSuccess": "Registro completado",
+    "regError": "No se pudo registrar"
   }
 }

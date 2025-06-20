@@ -54,7 +54,7 @@ const login = async () => {
 }
 
 function goToRegistrer() {
-  router.push('/registrer')
+  router.push('/register')
 }
 
 onMounted(() => {

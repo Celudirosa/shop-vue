@@ -14,17 +14,19 @@ const menuOptions = [
 </script>
 
 <template>
-<n-layout>
-    <n-layout-header bordered>
-      <Menu />
-    </n-layout-header>
+  <n-message-provider>
+    <n-layout>
+        <n-layout-header bordered>
+          <Menu />
+        </n-layout-header>
 
-    <n-layout-content style="min-height:100vh;padding:24px">
-      <router-view />
-    </n-layout-content>
-  </n-layout>
+        <n-layout-content style="min-height:100vh;padding:24px">
+          <router-view />
+        </n-layout-content>
+      </n-layout>
 
-  <LanguageSwitcher />
+    <LanguageSwitcher />
+  </n-message-provider>
 </template>
 
 <style src="./assets/styles/app.css"></style>
