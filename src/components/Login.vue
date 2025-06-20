@@ -18,27 +18,25 @@
         <n-button type="primary" @click="login">
           {{ t('login.btnLogin') }}
         </n-button>
-        <n-button @click="register">
+        <n-button @click="goToRegistrer">
           {{ t('login.btnRegister') }}
         </n-button>
       </n-space>
-      <n-divider />
-      <p v-if="user">
-        {{ t('login.logged', { email: user.email }) }}
-      </p>
     </n-card>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { auth } from '../config/firebase'
 import { useI18n } from 'vue-i18n'
 import {
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
   onAuthStateChanged
 } from 'firebase/auth'
+
+const router = useRouter()
 
 const email = ref('')
 const password = ref('')
@@ -49,18 +47,14 @@ const login = async () => {
   try {
     const res = await signInWithEmailAndPassword(auth, email.value, password.value)
     user.value = res.user
+    router.push('/dashboard')
   } catch (err) {
     console.error(err)
   }
 }
 
-const register = async () => {
-  try {
-    const res = await createUserWithEmailAndPassword(auth, email.value, password.value)
-    user.value = res.user
-  } catch (err) {
-    console.error(err)
-  }
+function goToRegistrer() {
+  router.push('/registrer')
 }
 
 onMounted(() => {
