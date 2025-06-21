@@ -61,7 +61,7 @@ function goToRegistrer() {
         ref="loginFormRef"
         :model="model"
         :rules="rules"
-        label-placement="top"
+        label-placement="left"
         size="medium"
       >
         <!-- Email Input -->
