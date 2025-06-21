@@ -5,6 +5,32 @@
     "password": "Contraseña",
     "btnLogin": "Iniciar sesión",
     "btnRegister": "Registrarse",
-    "logged": "Sesión iniciada como: {email}"
+    "logged": "Sesión iniciada como: {email}",
+    "emailRequired": "Introduce tu correo electrónico",
+    "emailInvalid": "Formato de correo no válido",
+    "pwdRequired": "Introduce tu contraseña",
+    "errorUserNotFound": "User no encontrado",
+    "errorWrongPassword": "Contraseña incorrecta",
+    "errorGeneral": "Error de ingreso"
+  },
+  "register": {
+    "title": "Crear cuenta",
+    "firstName": "Nombre",
+    "firstNameRequired": "Introduce tu nombre",
+    "lastName": "Apellidos",
+    "lastNameRequired": "Introduce tus apellidos",
+    "email": "Correo electrónico",
+    "emailRequired": "Introduce tu correo electrónico",
+    "emailInvalid": "Formato de correo no válido",
+    "password": "Contraseña",
+    "pwdRequired": "Introduce tu contraseña",
+    "pwdMin": "Mínimo 6 caracteres",
+    "confirmPassword": "Confirmar contraseña",
+    "confirmPwdRequired": "Por favor confirma tu contraseña",
+    "confirmPwdMatch": "Las contraseñas no coinciden",
+    "btnRegister": "Registrarse",
+    "backToLogin": "Volver a iniciar sesión",
+    "regSuccess": "Registro completado",
+    "regError": "Error en el registro"
   }
 }

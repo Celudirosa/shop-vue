@@ -5,6 +5,32 @@
     "password": "Password",
     "btnLogin": "Sign In",
     "btnRegister": "Register",
-    "logged": "Logged in as: {email}"
+    "logged": "Logged in as: {email}",
+    "emailRequired": "Enter your email",
+    "emailInvalid": "Invalid email format",
+    "pwdRequired": "Enter your password",
+    "errorUserNotFound": "User not found",
+    "errorWrongPassword": "Incorrect password",
+    "errorGeneral": "Login failed"
+  },
+  "register": {
+    "title": "Create account",
+    "firstName": "First Name",
+    "firstNameRequired": "Enter your first name",
+    "lastName": "Last Name",
+    "lastNameRequired": "Enter your last name",
+    "email": "Email",
+    "emailRequired": "Enter your email",
+    "emailInvalid": "Invalid email format",
+    "password": "Password",
+    "pwdRequired": "Enter your password",
+    "pwdMin": "Minimum 6 characters",
+    "confirmPassword": "Confirm Password",
+    "confirmPwdRequired": "Please confirm your password",
+    "confirmPwdMatch": "Passwords do not match",
+    "btnRegister": "Register",
+    "backToLogin": "Back to Login",
+    "regSuccess": "Registration completed",
+    "regError": "Registration failed"
   }
 }
