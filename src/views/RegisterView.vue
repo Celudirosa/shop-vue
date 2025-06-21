@@ -55,7 +55,7 @@ async function onSubmit () {
     // Create user with email and password
     await createUserWithEmailAndPassword(auth, model.email, model.password)
     message.success(t('register.regSuccess'))
-    router.push('/dashboard')
+    router.push('/')
   } catch (err) {
     message.error(t('register.regError'))
     console.error(err)

@@ -1,6 +1,11 @@
 .n-menu .n-menu-item {
   transition: background-color .2s;
 }
+
 .n-menu .n-menu-item:hover {
   background-color: rgba(0, 0, 0, .05);
+}
+
+h1 {
+  font-size: 40px;
 }
