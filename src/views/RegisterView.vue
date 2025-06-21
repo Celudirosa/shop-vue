@@ -24,21 +24,21 @@ const model = reactive({
 // Validation rules for each field
 const rules = {
   firstName: [
-    { required: true, message: t('register.firstNameRequired'), trigger: 'blur' }
+    { required: true, message: () => t('register.firstNameRequired'), trigger: 'blur' }
   ],
   lastName: [
-    { required: true, message: t('register.lastNameRequired'), trigger: 'blur' }
+    { required: true, message: () => t('register.lastNameRequired'), trigger: 'blur' }
   ],
   email: [
-    { required: true,  message: t('login.emailRequired'),  trigger: 'blur' },
-    { type: 'email',   message: t('login.emailInvalid'),   trigger: 'blur' }
+    { required: true, message: () => t('register.emailRequired'),  trigger: 'blur' },
+    { type: 'email', message: () => t('register.emailInvalid'),   trigger: 'blur' }
   ],
   password: [
-    { required: true,  message: t('login.pwdRequired'),    trigger: 'blur' },
-    { min: 6,          message: t('login.pwdMin'),         trigger: 'blur' }
+    { required: true, message: () => t('register.pwdRequired'),    trigger: 'blur' },
+    { min: 6, message: () => t('register.pwdMin'),         trigger: 'blur' }
   ],
   confirmPassword: [
-    { required: true, message: t('register.confirmPwdRequired'), trigger: 'blur' },
+    { required: true, message: () => t('register.confirmPwdRequired'), trigger: 'blur' },
     {
       validator(rule, value) {
         if (value !== model.password) {
@@ -54,10 +54,10 @@ async function onSubmit () {
   try {
     // Create user with email and password
     await createUserWithEmailAndPassword(auth, model.email, model.password)
-    message.success(t('login.regSuccess'))
+    message.success(t('register.regSuccess'))
     router.push('/dashboard')
   } catch (err) {
-    message.error(t('login.regError'))
+    message.error(t('register.regError'))
     console.error(err)
   }
 }
@@ -70,7 +70,7 @@ async function onSubmit () {
         size="medium"
         :model="model"
         :rules="rules"
-        label-placement="top"
+        label-placement="left"
       >
 
         <!-- First Name Input -->
