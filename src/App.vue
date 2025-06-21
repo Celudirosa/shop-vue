@@ -16,11 +16,11 @@ const menuOptions = [
 <template>
   <n-message-provider>
     <n-layout>
-        <n-layout-header bordered>
+        <n-layout-header class="main-header" bordered>
           <Menu />
         </n-layout-header>
 
-        <n-layout-content style="min-height:100vh;padding:24px">
+        <n-layout-content>
           <router-view />
         </n-layout-content>
       </n-layout>
