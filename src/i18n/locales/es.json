@@ -5,7 +5,13 @@
     "password": "Contraseña",
     "btnLogin": "Iniciar sesión",
     "btnRegister": "Registrarse",
-    "logged": "Sesión iniciada como: {email}"
+    "logged": "Sesión iniciada como: {email}",
+    "emailRequired": "Introduce tu correo electrónico",
+    "emailInvalid": "Formato de correo no válido",
+    "pwdRequired": "Introduce tu contraseña",
+    "errorUserNotFound": "User no encontrado",
+    "errorWrongPassword": "Contraseña incorrecta",
+    "errorGeneral": "Error de ingreso"
   },
   "register": {
     "title": "Crear cuenta",

@@ -1,15 +1,13 @@
 <script setup>
-import { reactive }   from 'vue'
-import { useRouter }  from 'vue-router'
-import { useI18n }    from 'vue-i18n'
+import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { useMessage } from 'naive-ui'
-import {
-  createUserWithEmailAndPassword
-} from 'firebase/auth'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../config/firebase'
 
-const router  = useRouter()
-const { t }   = useI18n()
+const router = useRouter()
+const { t } = useI18n()
 const message = useMessage()
 
 // Reactive form model with all inputs

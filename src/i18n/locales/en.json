@@ -5,7 +5,13 @@
     "password": "Password",
     "btnLogin": "Sign In",
     "btnRegister": "Register",
-    "logged": "Logged in as: {email}"
+    "logged": "Logged in as: {email}",
+    "emailRequired": "Enter your email",
+    "emailInvalid": "Invalid email format",
+    "pwdRequired": "Enter your password",
+    "errorUserNotFound": "User not found",
+    "errorWrongPassword": "Incorrect password",
+    "errorGeneral": "Login failed"
   },
   "register": {
     "title": "Create account",
