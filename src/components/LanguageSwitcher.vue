@@ -1,11 +1,11 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
+import { useI18n } from "vue-i18n";
 
-const { locale } = useI18n()
+const { locale } = useI18n();
 
 const toggleLang = () => {
-  locale.value = locale.value === 'es' ? 'en' : 'es'
-}
+  locale.value = locale.value === "es" ? "en" : "es";
+};
 </script>
 
 <template>

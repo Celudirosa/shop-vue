@@ -1,62 +1,86 @@
 <script setup>
-import { reactive } from 'vue'
-import { useRouter } from 'vue-router'
-import { useI18n } from 'vue-i18n'
-import { useMessage } from 'naive-ui'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../config/firebase'
+import { ref, reactive, watch, nextTick, computed } from "vue";
+import { useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
+import { useMessage } from "naive-ui";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config/firebase";
 
-const router = useRouter()
-const { t } = useI18n()
-const message = useMessage()
+const router = useRouter();
+const { t, locale } = useI18n();
+const message = useMessage();
 
 // Reactive form model with all inputs
 const model = reactive({
-  firstName: '',
-  lastName: '',
-  email: '',
-  password: '',
-  confirmPassword: ''
-})
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+});
 
 // Validation rules for each field
 const rules = {
   firstName: [
-    { required: true, message: () => t('register.firstNameRequired'), trigger: 'blur' }
+    {
+      required: true,
+      renderMessage: () => t("register.firstNameRequired"),
+      trigger: "blur",
+    },
   ],
   lastName: [
-    { required: true, message: () => t('register.lastNameRequired'), trigger: 'blur' }
+    {
+      required: true,
+      renderMessage: () => t("register.lastNameRequired"),
+      trigger: "blur",
+    },
   ],
   email: [
-    { required: true, message: () => t('register.emailRequired'),  trigger: 'blur' },
-    { type: 'email', message: () => t('register.emailInvalid'),   trigger: 'blur' }
+    {
+      required: true,
+      renderMessage: () => t("register.emailRequired"),
+      trigger: "blur",
+    },
+    {
+      type: "email",
+      renderMessage: () => t("register.emailInvalid"),
+      trigger: "blur",
+    },
   ],
   password: [
-    { required: true, message: () => t('register.pwdRequired'),    trigger: 'blur' },
-    { min: 6, message: () => t('register.pwdMin'),         trigger: 'blur' }
+    {
+      required: true,
+      renderMessage: () => t("register.pwdRequired"),
+      trigger: "blur",
+    },
+    { min: 6, renderMessage: () => t("register.pwdMin"), trigger: "blur" },
   ],
   confirmPassword: [
-    { required: true, message: () => t('register.confirmPwdRequired'), trigger: 'blur' },
+    {
+      required: true,
+      renderMessage: () => t("register.confirmPwdRequired"),
+      trigger: "blur",
+    },
     {
       validator(rule, value) {
         if (value !== model.password) {
-          return new Error(t('register.confirmPwdMatch'))
+          return new Error(t("register.confirmPwdMatch"));
         }
       },
-      trigger: 'blur'
-    }
-  ]
-}
+      trigger: "blur",
+    },
+  ],
+};
 
-async function onSubmit () {
+async function onSubmit() {
   try {
     // Create user with email and password
-    await createUserWithEmailAndPassword(auth, model.email, model.password)
-    message.success(t('register.regSuccess'))
-    router.push('/')
+    await createUserWithEmailAndPassword(auth, model.email, model.password);
+    message.success(t("register.regSuccess"));
+    router.push("/");
   } catch (err) {
-    message.error(t('register.regError'))
-    console.error(err)
+    message.error(t("register.regError"));
+    console.error(err);
   }
 }
 </script>
@@ -64,13 +88,14 @@ async function onSubmit () {
 <template>
   <div class="register-container">
     <n-card :title="t('register.title')" class="register-card">
-      <n-form 
+      <n-form
+        ref="registerFormRef"
         size="medium"
         :model="model"
         :rules="rules"
+        @validate="handleValidate"
         label-placement="left"
       >
-
         <!-- First Name Input -->
         <n-form-item path="firstName" label="">
           <n-input
@@ -101,7 +126,7 @@ async function onSubmit () {
 
         <!-- Password Input -->
         <n-form-item path="password" label="">
-          <n-input 
+          <n-input
             v-model:value="model.password"
             type="password"
             :placeholder="t('register.password')"
@@ -120,11 +145,8 @@ async function onSubmit () {
         </n-form-item>
 
         <!-- Submit Button -->
-        <n-button
-          type="primary"
-          block @click="onSubmit"
-        >
-          {{ t('register.btnRegister') }}
+        <n-button type="primary" block @click="onSubmit">
+          {{ t("register.btnRegister") }}
         </n-button>
 
         <!-- Back to Login Button -->
@@ -134,7 +156,7 @@ async function onSubmit () {
           style="margin-top: 12px"
           @click="router.push('/login')"
         >
-          {{ t('register.backToLogin') }}
+          {{ t("register.backToLogin") }}
         </n-button>
       </n-form>
     </n-card>

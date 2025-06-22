@@ -1,12 +1,14 @@
 <script setup>
-import { useRouter, useRoute } from 'vue-router'
-import { NMenu } from 'naive-ui'
-import menuOptions from '../router/menu.js'
+import { useRouter, useRoute } from "vue-router";
+import { NMenu } from "naive-ui";
+import menuOptions from "../router/menu.js";
 
-const router = useRouter()
-const route  = useRoute()
+const router = useRouter();
+const route = useRoute();
 
-const handleSelect = key => { router.push(key) }
+const handleSelect = (key) => {
+  router.push(key);
+};
 </script>
 
 <template>

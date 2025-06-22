@@ -1,29 +1,29 @@
 <script setup>
-import Login from './components/Login.vue'
-import LanguageSwitcher from './components/LanguageSwitcher.vue'
-import Menu from './components/Menu.vue'
-import { useI18n } from 'vue-i18n'
+import Login from "./components/Login.vue";
+import LanguageSwitcher from "./components/LanguageSwitcher.vue";
+import Menu from "./components/Menu.vue";
+import { useI18n } from "vue-i18n";
 
-const { locale } = useI18n()
+const { locale } = useI18n();
 
 const menuOptions = [
-  { label: 'Home', key: '/', to: '/' },
-  { label: 'Shop', key: '/shop', to: '/shop' },
-  { label: 'Login', key: '/login', to: '/login' }
-]
+  { label: "Home", key: "/", to: "/" },
+  { label: "Shop", key: "/shop", to: "/shop" },
+  { label: "Login", key: "/login", to: "/login" },
+];
 </script>
 
 <template>
   <n-message-provider>
     <n-layout>
-        <n-layout-header class="main-header" bordered>
-          <Menu />
-        </n-layout-header>
+      <n-layout-header class="main-header" bordered>
+        <Menu />
+      </n-layout-header>
 
-        <n-layout-content>
-          <router-view />
-        </n-layout-content>
-      </n-layout>
+      <n-layout-content>
+        <router-view />
+      </n-layout-content>
+    </n-layout>
 
     <LanguageSwitcher />
   </n-message-provider>
