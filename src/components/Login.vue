@@ -21,21 +21,23 @@ const rules = {
   email: [
     {
       required: true,
-      message: () => t("login.emailRequired"),
+      renderMessage: () => t("login.emailRequired"),
       trigger: "blur",
     },
-    { type: "email", message: () => t("login.emailInvalid"), trigger: "blur" },
+    {
+      type: "email",
+      renderMessage: () => t("login.emailInvalid"),
+      trigger: "blur",
+    },
   ],
   password: [
-    { required: true, message: () => t("login.pwdRequired"), trigger: "blur" },
+    {
+      required: true,
+      renderMessage: () => t("login.pwdRequired"),
+      trigger: "blur",
+    },
   ],
 };
-
-const loginFormRef = ref(null);
-
-watch(locale, () => {
-  loginFormRef.value?.restoreValidation();
-});
 
 async function login() {
   const valid = await loginFormRef.value?.validate();
