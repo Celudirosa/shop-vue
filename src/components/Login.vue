@@ -4,11 +4,17 @@ import { useRouter } from "vue-router";
 import { auth } from "../config/firebase";
 import { useMessage } from "naive-ui";
 import { useI18n } from "vue-i18n";
+import { Eye, EyeOff } from "@vicons/tabler";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const router = useRouter();
 const message = useMessage();
 const { t, locale } = useI18n();
+
+const showPassword = ref(false);
+const togglePassword = () => {
+  showPassword.value = !showPassword.value;
+};
 
 // Reactive form model with all inputs
 const model = reactive({
@@ -22,19 +28,19 @@ const rules = {
     {
       required: true,
       renderMessage: () => t("login.emailRequired"),
-      trigger: "blur",
+      trigger: ["blur", "input"],
     },
     {
       type: "email",
       renderMessage: () => t("login.emailInvalid"),
-      trigger: "blur",
+      trigger: ["blur", "input"],
     },
   ],
   password: [
     {
       required: true,
       renderMessage: () => t("login.pwdRequired"),
-      trigger: "blur",
+      trigger: ["blur", "input"],
     },
   ],
 };
@@ -69,8 +75,8 @@ function goToRegistrer() {
 </script>
 
 <template>
-  <div class="login-container">
-    <n-card :title="t('login.title')" class="login-card">
+  <div class="auth-container">
+    <n-card :title="t('login.title')" class="auth-card">
       <n-form
         ref="loginFormRef"
         :model="model"
@@ -91,18 +97,33 @@ function goToRegistrer() {
         <!-- Password Input -->
         <n-form-item path="password" label="">
           <n-input
+            :type="showPassword ? 'text' : 'password'"
             v-model:value="model.password"
-            type="password"
             :placeholder="t('login.password')"
-            show-password-on="mousedown"
             class="login-input"
-          />
+          >
+            <template #suffix>
+              <n-icon
+                :component="showPassword ? Eye : EyeOff"
+                @mousedown.prevent="showPassword = true"
+                @mouseup.prevent="showPassword = false"
+                @mouseleave="showPassword = false"
+                @touchstart.prevent="showPassword = true"
+                @touchend.prevent="showPassword = false"
+                @touchcancel.prevent="showPassword = false"
+                @click.prevent.stop
+              />
+            </template>
+          </n-input>
         </n-form-item>
 
-        <n-space justify="space-between" class="login-buttons">
+        <n-space justify="space-between" class="auth-buttons">
+          <!-- Register Button -->
           <n-button type="primary" @click="login">
             {{ t("login.btnLogin") }}
           </n-button>
+
+          <!-- Back to Login Button -->
           <n-button @click="goToRegistrer">
             {{ t("login.btnRegister") }}
           </n-button>
@@ -112,4 +133,4 @@ function goToRegistrer() {
   </div>
 </template>
 
-<style src="../assets/styles/login.css"></style>
+<style src="../assets/styles/auth.css"></style>

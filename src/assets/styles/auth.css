@@ -1,4 +1,4 @@
-.login-container {
+.auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,17 +8,17 @@
   padding: 2rem;
 }
 
-.login-card {
+.auth-card {
   width: 100%;
   max-width: 400px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
 }
 
-.login-input {
+.auth-input {
   margin-top: 6px;
 }
 
-.login-buttons {
+.auth-buttons {
   margin-top: 24px;
 }
