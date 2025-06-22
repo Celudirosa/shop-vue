@@ -1,7 +1,7 @@
 import { h } from "vue";
 import { HomeOutline, CartOutline, LogInOutline } from "@vicons/ionicons5";
 
-const menuOptions = [
+export const leftMenu = [
   {
     label: "Home",
     key: "/",
@@ -14,6 +14,9 @@ const menuOptions = [
     to: "/shop",
     icon: () => h(CartOutline),
   },
+];
+
+export const rightMenu = [
   {
     label: "Login",
     key: "/login",
@@ -21,5 +24,3 @@ const menuOptions = [
     icon: () => h(LogInOutline),
   },
 ];
-
-export default menuOptions;
