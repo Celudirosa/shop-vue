@@ -12,9 +12,7 @@ const message = useMessage();
 const { t, locale } = useI18n();
 
 const showPassword = ref(false);
-const togglePassword = () => {
-  showPassword.value = !showPassword.value;
-};
+const loginFormRef = ref(null);
 
 // Reactive form model with all inputs
 const model = reactive({
@@ -100,11 +98,10 @@ function goToRegistrer() {
             :type="showPassword ? 'text' : 'password'"
             v-model:value="model.password"
             :placeholder="t('login.password')"
-            class="login-input"
           >
             <template #suffix>
               <n-icon
-                :component="showPassword ? Eye : EyeOff"
+                :component="showPassword ? EyeOff : Eye"
                 @mousedown.prevent="showPassword = true"
                 @mouseup.prevent="showPassword = false"
                 @mouseleave="showPassword = false"
@@ -118,12 +115,16 @@ function goToRegistrer() {
         </n-form-item>
 
         <n-space justify="space-between" class="auth-buttons">
-          <!-- Register Button -->
-          <n-button type="primary" @click="login">
+          <!-- Login Button -->
+          <n-button
+            type="primary"
+            @click="login"
+            :disabled="!model.email || !model.password"
+          >
             {{ t("login.btnLogin") }}
           </n-button>
 
-          <!-- Back to Login Button -->
+          <!-- Go to Register Button -->
           <n-button @click="goToRegistrer">
             {{ t("login.btnRegister") }}
           </n-button>

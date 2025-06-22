@@ -3,16 +3,12 @@ import { ref, reactive, watch, nextTick, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { useMessage } from "naive-ui";
-import { Eye, EyeOff } from "@vicons/tabler";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 
 const router = useRouter();
 const { t, locale } = useI18n();
 const message = useMessage();
-
-const showPassword = ref(false);
-const showConfirmPassword = ref(false);
 
 // Reactive form model with all inputs
 const model = reactive({
@@ -162,43 +158,21 @@ async function onSubmit() {
         <!-- Password Input -->
         <n-form-item path="password" label="">
           <n-input
-            :type="showPassword ? 'text' : 'password'"
             v-model:value="model.password"
+            type="password"
             :placeholder="t('register.password')"
-          >
-            <template #suffix>
-              <n-icon
-                :component="showPassword ? EyeOff : Eye"
-                @mousedown.prevent="showPassword = true"
-                @mouseup.prevent="showPassword = false"
-                @mouseleave="showPassword = false"
-                @touchstart.prevent="showPassword = true"
-                @touchend.prevent="showPassword = false"
-                @touchcancel.prevent="showPassword = false"
-              />
-            </template>
-          </n-input>
+            show-password-on="mousedown"
+          />
         </n-form-item>
 
         <!-- Confirm Password Input -->
         <n-form-item path="confirmPassword" label="">
           <n-input
-            :type="showConfirmPassword ? 'text' : 'password'"
             v-model:value="model.confirmPassword"
+            type="password"
             :placeholder="t('register.confirmPassword')"
-          >
-            <template #suffix>
-              <n-icon
-                :component="showConfirmPassword ? EyeOff : Eye"
-                @mousedown.prevent="showConfirmPassword = true"
-                @mouseup.prevent="showConfirmPassword = false"
-                @mouseleave="showConfirmPassword = false"
-                @touchstart.prevent="showConfirmPassword = true"
-                @touchend.prevent="showConfirmPassword = false"
-                @touchcancel.prevent="showConfirmPassword = false"
-              />
-            </template>
-          </n-input>
+            show-password-on="mousedown"
+          />
         </n-form-item>
 
         <!-- Submit Button -->

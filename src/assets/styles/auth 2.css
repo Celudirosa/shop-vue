@@ -1,0 +1,24 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-height: 100vh;
+  background-color: var(--color-background-soft);
+  padding: 2rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.auth-input {
+  margin-top: 6px;
+}
+
+.auth-buttons {
+  margin-top: 24px;
+}
