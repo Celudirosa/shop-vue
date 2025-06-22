@@ -22,19 +22,19 @@ const rules = {
     {
       required: true,
       renderMessage: () => t("login.emailRequired"),
-      trigger: "blur",
+      trigger: ["blur", "input"],
     },
     {
       type: "email",
       renderMessage: () => t("login.emailInvalid"),
-      trigger: "blur",
+      trigger: ["blur", "input"],
     },
   ],
   password: [
     {
       required: true,
       renderMessage: () => t("login.pwdRequired"),
-      trigger: "blur",
+      trigger: ["blur", "input"],
     },
   ],
 };
@@ -69,8 +69,8 @@ function goToRegistrer() {
 </script>
 
 <template>
-  <div class="login-container">
-    <n-card :title="t('login.title')" class="login-card">
+  <div class="auth-container">
+    <n-card :title="t('login.title')" class="auth-card">
       <n-form
         ref="loginFormRef"
         :model="model"
@@ -99,7 +99,7 @@ function goToRegistrer() {
           />
         </n-form-item>
 
-        <n-space justify="space-between" class="login-buttons">
+        <n-space justify="space-between" class="auth-buttons">
           <n-button type="primary" @click="login">
             {{ t("login.btnLogin") }}
           </n-button>
@@ -112,4 +112,4 @@ function goToRegistrer() {
   </div>
 </template>
 
-<style src="../assets/styles/login.css"></style>
+<style src="../assets/styles/auth.css"></style>
